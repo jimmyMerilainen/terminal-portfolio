@@ -1,6 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<svelte:head>
+	<title>Jimmy - Portfolio</title>
+	<meta name="description" content="Jimmy's portfolio" />
+</svelte:head>
 
-<h1 class="text-4xl font-bold underline bg-amber-500">
-	Hello, terminal!
-</h1>
+<main class="min-h-screen bg-black p-4 text-green-400">
+	<div class="mx-auto">
+		<p>Welcome to my portfolio!</p>
+
+		<p class="mt-4">Type <span class="text-white">help</span> to see available commands.</p>
+
+		<div class="mt-4">
+			<span class="text-white">jimmy@portfolio:~$</span>
+			<span class="ml-2">_</span>
+		</div>
+	</div>
+</main>

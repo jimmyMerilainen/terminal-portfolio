@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
+
+html,
+body {
+	margin: 0;
+	background: #000;
+	font-family: 'JetBrains Mono', monospace;
+}

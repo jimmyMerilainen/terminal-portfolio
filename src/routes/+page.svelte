@@ -1,3 +1,11 @@
+<script lang="ts">
+	import TerminalInput from '$lib/components/TerminalInput.svelte';
+
+	function handleCommand(command: string) {
+		console.log('Command:', command);
+	}
+</script>
+
 <svelte:head>
 	<title>Jimmy - Portfolio</title>
 	<meta name="description" content="Jimmy's portfolio" />
@@ -9,9 +17,6 @@
 
 		<p class="mt-4">Type <span class="text-white">help</span> to see available commands.</p>
 
-		<div class="mt-4">
-			<span class="text-white">jimmy@portfolio:~$</span>
-			<span class="ml-2">_</span>
-		</div>
+		<TerminalInput onSubmit={handleCommand} />
 	</div>
 </main>

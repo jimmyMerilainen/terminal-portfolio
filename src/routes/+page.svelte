@@ -1,10 +1,18 @@
 <script lang="ts">
 	import TerminalInput from '$lib/components/TerminalInput.svelte';
+	import { handleCommand as executeCommand } from '$lib/commands/handler';
+	import type { TerminalOutput } from '$lib/types/command';
 
-	let historyArray = $state<string[]>([]);
+	let historyArray = $state<
+		{
+			command: string;
+			output: TerminalOutput;
+		}[]
+	>([]);
 
 	function handleCommand(command: string) {
-		historyArray = [...historyArray, command];
+		const output = executeCommand(command);
+		historyArray = [...historyArray, { command, output }];
 	}
 </script>
 
@@ -19,8 +27,14 @@
 
 		<p class="mt-4">Type <span class="text-white">help</span> to see available commands.</p>
 
-		{#each historyArray as command (command)}
-			<p><span class="text-white">jimmy@portfolio:~$</span> {command}</p>
+		{#each historyArray as history (history.command)}
+			<p class="mt-4"><span class="text-white">jimmy@portfolio:~$</span> {history.command}</p>
+
+			{#if history.output.type === 'text'}
+				<p>{history.output.content}</p>
+			{:else if history.output.type === 'error'}
+				<p class="text-red-500">{history.output.message}</p>
+			{/if}
 		{/each}
 
 		<TerminalInput onSubmit={handleCommand} />

@@ -1,8 +1,10 @@
 <script lang="ts">
 	import TerminalInput from '$lib/components/TerminalInput.svelte';
 
+	let historyArray = $state<string[]>([]);
+
 	function handleCommand(command: string) {
-		console.log('Command:', command);
+		historyArray = [...historyArray, command];
 	}
 </script>
 
@@ -16,6 +18,10 @@
 		<p>Welcome to my portfolio!</p>
 
 		<p class="mt-4">Type <span class="text-white">help</span> to see available commands.</p>
+
+		{#each historyArray as command (command)}
+			<p><span class="text-white">jimmy@portfolio:~$</span> {command}</p>
+		{/each}
 
 		<TerminalInput onSubmit={handleCommand} />
 	</div>

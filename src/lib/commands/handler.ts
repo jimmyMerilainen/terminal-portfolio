@@ -11,5 +11,5 @@ export function handleCommand(command: string): TerminalOutput {
 		};
 	}
 
-	return matchedCommand.execute();
+	return matchedCommand.execute(Object.values(commands));
 }

@@ -32,7 +32,13 @@
 			<p class="mt-4"><span class="text-white">jimmy@portfolio:~$</span> {history.command}</p>
 
 			{#if history.output.type === 'text'}
-				<p>{history.output.content}</p>
+				<p class="whitespace-pre-line">
+					{#each history.output.content as segment, index (index)}
+						<span class={segment.style === 'command' ? 'text-white' : 'text-green-400'}>
+							{segment.text}
+						</span>
+					{/each}
+				</p>
 			{:else if history.output.type === 'error'}
 				<p class="text-red-500">{history.output.message}</p>
 			{/if}

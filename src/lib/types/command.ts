@@ -1,13 +1,13 @@
 export type Command = {
 	name: string;
 	description: string;
-	execute: () => CommandOutput;
+	execute: (commands: Command[]) => CommandOutput;
 };
 
 export type CommandOutput =
 	| {
 			type: 'text';
-			content: string;
+			content: textSegment[];
 	  }
 	| {
 			type: 'link';
@@ -28,4 +28,9 @@ export type TerminalOutput =
 export type CommandHistoryItem = {
 	command: string;
 	output: TerminalOutput;
+};
+
+export type textSegment = {
+	text: string;
+	style?: 'command' | 'description';
 };

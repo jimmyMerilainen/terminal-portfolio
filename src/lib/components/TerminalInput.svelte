@@ -29,6 +29,8 @@
 	});
 
 	function handleInput() {
+		if (!inputValue.trim()) return;
+
 		onSubmit(inputValue);
 		inputValue = '';
 		historyIndex = -1;

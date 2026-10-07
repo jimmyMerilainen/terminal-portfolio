@@ -2,6 +2,7 @@ import type { Command } from '$lib/types/command';
 import { helpCommand } from './help';
 import { aboutCommand } from './about';
 import { experienceCommand } from './experience';
+import { projectsCommand } from './projects';
 
 export const commands: Record<string, Command> = {
 	about: aboutCommand,
@@ -13,5 +14,6 @@ export const commands: Record<string, Command> = {
 		})
 	},
 	experience: experienceCommand,
-	help: helpCommand
+	help: helpCommand,
+	projects: projectsCommand
 };

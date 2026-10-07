@@ -32,5 +32,6 @@ export type CommandHistoryItem = {
 
 export type textSegment = {
 	text: string;
-	style?: 'command' | 'description';
+	style?: 'command' | 'description' | 'link';
+	url?: string;
 };

@@ -34,9 +34,20 @@
 			{#if history.output.type === 'text'}
 				<p class="whitespace-pre-line">
 					{#each history.output.content as segment, index (index)}
-						<span class={segment.style === 'command' ? 'text-white' : 'text-green-400'}>
-							{segment.text}
-						</span>
+						{#if segment.style === 'link'}
+							<a
+								href={segment.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-blue-400 underline"
+							>
+								{segment.text}
+							</a>
+						{:else}
+							<span class={segment.style === 'command' ? 'text-white' : 'text-green-400'}>
+								{segment.text}
+							</span>
+						{/if}
 					{/each}
 				</p>
 			{:else if history.output.type === 'error'}

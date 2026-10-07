@@ -35,6 +35,10 @@
 		inputValue = '';
 		historyIndex = -1;
 	}
+
+	export function focusInput() {
+		inputElement?.focus();
+	}
 </script>
 
 <label class="mt-4 flex">

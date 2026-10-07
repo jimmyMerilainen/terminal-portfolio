@@ -5,9 +5,24 @@
 	import { onMount } from 'svelte';
 
 	let historyArray = $state<CommandHistoryItem[]>([]);
+	let terminalInput: TerminalInput;
 
 	onMount(() => {
 		handleCommand('welcome');
+
+		const handleWindowClick = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			if (target.closest('a, input, button')) return;
+
+			terminalInput?.focusInput();
+		};
+
+		window.addEventListener('click', handleWindowClick);
+
+		return () => {
+			window.removeEventListener('click', handleWindowClick);
+		};
 	});
 
 	function handleCommand(command: string) {
@@ -62,6 +77,6 @@
 			{/if}
 		{/each}
 
-		<TerminalInput onSubmit={handleCommand} history={historyArray} />
+		<TerminalInput onSubmit={handleCommand} history={historyArray} bind:this={terminalInput} />
 	</div>
 </main>

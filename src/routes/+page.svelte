@@ -48,9 +48,11 @@
 			<p class="mt-4"><span class="text-white">jimmy@portfolio:~$</span> {history.command}</p>
 
 			{#if history.output.type === 'text'}
-				<p class="whitespace-pre-line">
+				<div class="whitespace-pre-line">
 					{#each history.output.content as segment, index (index)}
-						{#if segment.style === 'link' && segment.url}
+						{#if segment.style === 'ascii'}
+							<pre class="overflow-x-auto">{segment.text}</pre>
+						{:else if segment.style === 'link' && segment.url}
 							<a
 								href={segment.url}
 								target="_blank"
@@ -71,7 +73,7 @@
 							</span>
 						{/if}
 					{/each}
-				</p>
+				</div>
 			{:else if history.output.type === 'error'}
 				<p class="text-red-500">{history.output.message}</p>
 			{/if}

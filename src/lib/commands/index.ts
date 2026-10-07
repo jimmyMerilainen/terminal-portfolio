@@ -5,6 +5,7 @@ import { experienceCommand } from './experience';
 import { projectsCommand } from './projects';
 import { skillsCommand } from './skills';
 import { contactCommand } from './contact';
+import { welcomeCommand } from './welcome';
 
 export const commands: Record<string, Command> = {
 	about: aboutCommand,
@@ -19,5 +20,6 @@ export const commands: Record<string, Command> = {
 	experience: experienceCommand,
 	help: helpCommand,
 	projects: projectsCommand,
-	skills: skillsCommand
+	skills: skillsCommand,
+	welcome: welcomeCommand
 };

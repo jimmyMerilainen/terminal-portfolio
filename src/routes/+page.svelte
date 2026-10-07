@@ -2,8 +2,13 @@
 	import TerminalInput from '$lib/components/TerminalInput.svelte';
 	import { handleCommand as executeCommand } from '$lib/commands/handler';
 	import type { CommandHistoryItem } from '$lib/types/command';
+	import { onMount } from 'svelte';
 
 	let historyArray = $state<CommandHistoryItem[]>([]);
+
+	onMount(() => {
+		handleCommand('welcome');
+	});
 
 	function handleCommand(command: string) {
 		const output = executeCommand(command);
@@ -24,10 +29,6 @@
 
 <main class="min-h-screen bg-black p-4 text-green-400">
 	<div class="mx-auto">
-		<p>Welcome to my portfolio!</p>
-
-		<p class="mt-4">Type <span class="text-white">help</span> to see available commands.</p>
-
 		{#each historyArray as history, index (index)}
 			<p class="mt-4"><span class="text-white">jimmy@portfolio:~$</span> {history.command}</p>
 

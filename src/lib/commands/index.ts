@@ -8,5 +8,12 @@ export const commands: Record<string, Command> = {
 			type: 'text',
 			content: 'Available commands: help'
 		})
+	},
+	clear: {
+		name: 'clear',
+		description: 'Clear the terminal',
+		execute: () => ({
+			type: 'clear'
+		})
 	}
 };

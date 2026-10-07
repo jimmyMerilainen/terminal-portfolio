@@ -13,6 +13,9 @@ export type CommandOutput =
 			type: 'link';
 			label: string;
 			url: string;
+	  }
+	| {
+			type: 'clear';
 	  };
 
 export type TerminalOutput =
@@ -21,3 +24,8 @@ export type TerminalOutput =
 			type: 'error';
 			message: string;
 	  };
+
+export type CommandHistoryItem = {
+	command: string;
+	output: TerminalOutput;
+};

@@ -1,17 +1,18 @@
 <script lang="ts">
 	import TerminalInput from '$lib/components/TerminalInput.svelte';
 	import { handleCommand as executeCommand } from '$lib/commands/handler';
-	import type { TerminalOutput } from '$lib/types/command';
+	import type { CommandHistoryItem } from '$lib/types/command';
 
-	let historyArray = $state<
-		{
-			command: string;
-			output: TerminalOutput;
-		}[]
-	>([]);
+	let historyArray = $state<CommandHistoryItem[]>([]);
 
 	function handleCommand(command: string) {
 		const output = executeCommand(command);
+
+		if (output.type === 'clear') {
+			historyArray = [];
+			return;
+		}
+
 		historyArray = [...historyArray, { command, output }];
 	}
 </script>
@@ -37,6 +38,6 @@
 			{/if}
 		{/each}
 
-		<TerminalInput onSubmit={handleCommand} />
+		<TerminalInput onSubmit={handleCommand} history={historyArray} />
 	</div>
 </main>

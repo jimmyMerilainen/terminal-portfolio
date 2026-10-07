@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import type { CommandHistoryItem } from '$lib/types/command';
 
 	let inputValue: string = $state('');
@@ -16,6 +16,16 @@
 
 	onMount(() => {
 		inputElement.focus();
+	});
+
+	$effect(() => {
+		const historyLength = history.length;
+
+		tick().then(() => {
+			if (historyLength > 0) {
+				inputElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+			}
+		});
 	});
 
 	function handleInput() {

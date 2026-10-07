@@ -28,7 +28,7 @@
 
 		<p class="mt-4">Type <span class="text-white">help</span> to see available commands.</p>
 
-		{#each historyArray as history (history.command)}
+		{#each historyArray as history, index (index)}
 			<p class="mt-4"><span class="text-white">jimmy@portfolio:~$</span> {history.command}</p>
 
 			{#if history.output.type === 'text'}

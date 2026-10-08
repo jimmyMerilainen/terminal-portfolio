@@ -13,6 +13,9 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
+			paths: {
+				base: '/terminal-portfolio'
+			},
 
 			adapter: adapter()
 		})

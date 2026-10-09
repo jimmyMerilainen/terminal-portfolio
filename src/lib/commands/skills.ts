@@ -6,20 +6,20 @@ export const skillsCommand: Command = {
 	execute: () => ({
 		type: 'text',
 		content: [
-			{ text: 'Frontend\n', style: 'command' },
-			{ text: '  React\n', style: 'technology' },
-			{ text: '  React Native\n', style: 'technology' },
-			{ text: '  SvelteKit\n', style: 'technology' },
-			{ text: '  TypeScript\n', style: 'technology' },
-			{ text: '  JavaScript\n\n', style: 'technology' },
+			{ text: '\nFrontend\n', style: 'command' },
+			{ text: 'HTML5 · CSS3 · JavaScript · TypeScript\n', style: 'technology' },
+			{ text: 'React · React Native · Expo · SvelteKit\n', style: 'technology' },
+			{ text: 'Vite · REST APIs\n', style: 'technology' },
 
-			{ text: 'Tools & Backend\n', style: 'command' },
-			{ text: '  Firebase\n', style: 'technology' },
-			{ text: '  Git\n', style: 'technology' },
-			{ text: '  Vitest\n', style: 'technology' },
-			{ text: '  Vite\n', style: 'technology' },
-			{ text: '  Cloudflare\n', style: 'technology' },
-			{ text: '  GitHub Actions', style: 'technology' }
+			{ text: '\nTesting\n', style: 'command' },
+			{ text: 'Vitest\n', style: 'technology' },
+
+			{ text: '\nTools & Workflow\n', style: 'command' },
+			{ text: 'Git · GitHub · GitHub Actions · VS Code\n', style: 'technology' },
+			{ text: 'npm · Claude Code · Copilot\n', style: 'technology' },
+
+			{ text: '\nBackend & Infrastructure\n', style: 'command' },
+			{ text: 'Firebase · Cloudflare\n', style: 'technology' }
 		]
 	})
 };

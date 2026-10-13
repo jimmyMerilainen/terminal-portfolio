@@ -67,7 +67,9 @@
 									? 'text-white'
 									: segment.style === 'technology'
 										? 'text-orange-400'
-										: 'text-green-400'}
+										: segment.style === 'status'
+											? 'text-amber-400'
+											: 'text-green-400'}
 							>
 								{segment.text}
 							</span>

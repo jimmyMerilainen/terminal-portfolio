@@ -6,7 +6,7 @@ export const aboutCommand: Command = {
 	execute: () => ({
 		type: 'text',
 		content: [
-			{ text: 'Hi, my name is Jimmy Meriläinen!\n', style: 'description' },
+			{ text: '\nHi, my name is Jimmy Meriläinen!\n', style: 'description' },
 			{ text: 'Frontend & Mobile Developer\n\n', style: 'description' },
 			{
 				text: 'I build web and mobile applications with a focus\n',

@@ -6,7 +6,7 @@ export const contactCommand: Command = {
 	execute: () => ({
 		type: 'text',
 		content: [
-			{ text: 'Email\n', style: 'command' },
+			{ text: '\nEmail\n', style: 'command' },
 			{
 				text: 'merilainen@live.se\n\n',
 				style: 'link',

@@ -23,7 +23,18 @@ export const welcomeCommand: Command = {
 ╚═╝     ╚═╝  ╚═════╝╚═╝      ╚═╝╚═╝  ╚═══════╝╚═╝╚═╝   ╚═╝  ╚═════╝╚═╝   ╚═╝
                                                                             
                                                                             `,
-				style: 'ascii'
+				style: 'ascii-desktop'
+			},
+			{
+				text: `\n ▜▘▗                      
+ ▐ ▄ ▛▚▀▖▛▚▀▖▌ ▌          
+▌▐ ▐ ▌▐ ▌▌▐ ▌▚▄▌          
+▝▘ ▀▘▘▝ ▘▘▝ ▘▗▄▘          
+▙▗▌      ▗▜ ▝▝ ▗          
+▌▘▌▞▀▖▙▀▖▄▐ ▝▀▖▄ ▛▀▖▞▀▖▛▀▖
+▌ ▌▛▀ ▌  ▐▐ ▞▀▌▐ ▌ ▌▛▀ ▌ ▌
+▘ ▘▝▀▘▘  ▀▘▘▝▀▘▀▘▘ ▘▝▀▘▘ ▘\n\n`,
+				style: 'ascii-mobile'
 			},
 			{
 				text: 'Welcome to my portfolio!\n\n',

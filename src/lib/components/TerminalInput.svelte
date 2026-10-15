@@ -75,6 +75,6 @@
 			}
 		}}
 		bind:value={inputValue}
-		class="ml-2 flex-1 outline-none"
+		class="ml-2 flex-1 caret-green-400 outline-none"
 	/>
 </label>

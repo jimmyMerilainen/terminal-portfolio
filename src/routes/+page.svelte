@@ -50,8 +50,10 @@
 			{#if history.output.type === 'text'}
 				<div class="whitespace-pre-line">
 					{#each history.output.content as segment, index (index)}
-						{#if segment.style === 'ascii'}
-							<pre class="overflow-x-auto">{segment.text}</pre>
+						{#if segment.style === 'ascii-desktop'}
+							<pre class="hidden overflow-x-auto sm:block">{segment.text}</pre>
+						{:else if segment.style === 'ascii-mobile'}
+							<pre class="block overflow-x-auto sm:hidden">{segment.text}</pre>
 						{:else if segment.style === 'link' && segment.url}
 							<a
 								href={segment.url}

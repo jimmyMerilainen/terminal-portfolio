@@ -6,6 +6,8 @@
 
 	let historyArray = $state<CommandHistoryItem[]>([]);
 	let terminalInput: TerminalInput;
+	let jokeCountdown = $state<Record<number, number>>({});
+	let jokeTimers: ReturnType<typeof setTimeout>[] = [];
 
 	onMount(() => {
 		handleCommand('welcome');
@@ -22,6 +24,7 @@
 
 		return () => {
 			window.removeEventListener('click', handleWindowClick);
+			clearJokeTimers();
 		};
 	});
 
@@ -29,11 +32,42 @@
 		const output = executeCommand(command);
 
 		if (output.type === 'clear') {
+			clearJokeTimers();
 			historyArray = [];
 			return;
 		}
 
 		historyArray = [...historyArray, { command, output }];
+
+		if (output.type === 'joke') {
+			startJokeCountdown(historyArray.length - 1);
+		}
+	}
+
+	function startJokeCountdown(index: number) {
+		jokeCountdown[index] = 3;
+
+		const countdown = (value: number) => {
+			if (value === 0) {
+				jokeCountdown[index] = 0;
+				return;
+			}
+
+			const timer = setTimeout(() => {
+				jokeCountdown[index] = value - 1;
+				countdown(value - 1);
+			}, 1000);
+
+			jokeTimers.push(timer);
+		};
+
+		countdown(3);
+	}
+
+	function clearJokeTimers() {
+		jokeTimers.forEach((timer) => clearTimeout(timer));
+		jokeTimers = [];
+		jokeCountdown = {};
 	}
 </script>
 
@@ -77,6 +111,15 @@
 							</span>
 						{/if}
 					{/each}
+				</div>
+			{:else if history.output.type === 'joke'}
+				<div class="whitespace-pre-line">
+					<p>{history.output.question}</p>
+					{#if jokeCountdown[index] > 0}
+						<p class="mt-2 text-amber-400">Revealing answer in {jokeCountdown[index]}...</p>
+					{:else if jokeCountdown[index] === 0}
+						<p class="mt-2">{history.output.answer}</p>
+					{/if}
 				</div>
 			{:else if history.output.type === 'error'}
 				<p class="text-red-500">{history.output.message}</p>

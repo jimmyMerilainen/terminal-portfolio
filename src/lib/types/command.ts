@@ -15,6 +15,11 @@ export type CommandOutput =
 			url: string;
 	  }
 	| {
+			type: 'joke';
+			question: string;
+			answer: string;
+	  }
+	| {
 			type: 'clear';
 	  };
 

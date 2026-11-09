@@ -1,42 +1,112 @@
-# sv
+# Terminal Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A terminal-inspired personal portfolio built with SvelteKit and TypeScript. Explore my experience, education, skills and projects through an interactive terminal interface.
 
-## Creating a project
+## Live Demo
 
-If you're seeing this, you've probably already done this step. Congrats!
+[View Portfolio](https://jimmymerilainen.github.io/terminal-portfolio/)
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Features
 
-To recreate this project with the same configuration:
+- Interactive terminal interface
+- Custom terminal commands
+- Command history with keyboard navigation
+- Case-insensitive commands
+- Responsive ASCII art for desktop and mobile
+- Random programming jokes with an animated countdown
+- Responsive design for desktop and mobile
+- Automated deployment to GitHub Pages
 
-```sh
-# recreate this project
-npx sv@0.17.1 create --template minimal --types ts --add prettier eslint vitest="usages:component,unit" tailwindcss="plugins:none" --install npm terminal-portfolio
-```
+## Tech Stack
 
-## Developing
+- **Framework:** SvelteKit
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Testing:** Vitest
+- **Build Tool:** Vite
+- **CI/CD:** GitHub Actions
+- **Hosting:** GitHub Pages
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Getting Started
 
-```sh
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/jimmymerilainen/terminal-portfolio.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd terminal-portfolio
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server:
+
+```bash
 npm run dev
+```
 
-# or start the server and open the app in a new browser tab
+To automatically open the application in your browser:
+
+```bash
 npm run dev -- --open
 ```
 
-## Building
+## Testing & Validation
 
-To create a production version of your app:
+Run the following commands to check the project:
 
-```sh
+```bash
+npm run check
+npm run lint
+```
+
+## Production Build
+
+Create a production build:
+
+```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+Preview the production build locally:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+npm run preview
+```
+
+## Deployment
+
+The project is deployed to GitHub Pages using GitHub Actions.
+
+Every push to the `main` branch automatically triggers a workflow that:
+
+1. Installs dependencies.
+2. Builds the application.
+3. Uploads the static build.
+4. Deploys the site to GitHub Pages.
+
+## Author
+
+**Jimmy**
+
+- GitHub: [YOUR-USERNAME](https://github.com/jimmyMerilainen)
+- Portfolio: [View Portfolio](https://jimmymerilainen.github.io/terminal-portfolio/)

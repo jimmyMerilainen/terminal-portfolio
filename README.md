@@ -2,6 +2,10 @@
 
 A terminal-inspired personal portfolio built with SvelteKit and TypeScript. Explore my experience, education, skills and projects through an interactive terminal interface.
 
+## Preview
+
+![Terminal Portfolio Preview](static/images/portfolio-preview.png)
+
 ## Live Demo
 
 [View Portfolio](https://jimmymerilainen.github.io/terminal-portfolio/)

@@ -108,5 +108,5 @@ Every push to the `main` branch automatically triggers a workflow that:
 
 **Jimmy**
 
-- GitHub: [YOUR-USERNAME](https://github.com/jimmyMerilainen)
+- GitHub: [Jimmy](https://github.com/jimmyMerilainen)
 - Portfolio: [View Portfolio](https://jimmymerilainen.github.io/terminal-portfolio/)
